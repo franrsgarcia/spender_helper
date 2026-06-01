@@ -20,9 +20,12 @@ Native iPhone app for logging spending after Apple Wallet payments, triggered vi
 
 ## What the app does
 
-- **Quick log** — Amount, merchant, category, notes after a payment.
+- **Quick log** — Amount, merchant, category, card/account, and notes after a payment.
+- **Categories** — Add and remove custom categories in **Settings → Categories** (default set seeded on first launch).
+- **Cards & accounts** — Add and remove payment methods in **Settings → Cards & Accounts** (e.g. `Visa ••1234`).
+- **Filters** — Filter the expense list by time period (today, this week, this month, last 30 days, or custom range), categories, and accounts. Export respects active filters.
 - **History** — List, swipe to delete, tap to edit.
-- **Export** — CSV with columns: `date`, `time`, `amount`, `currency`, `merchant`, `category`, `notes` (decimal point always `.` for spreadsheet compatibility).
+- **Export** — CSV with columns: `date`, `time`, `amount`, `currency`, `merchant`, `category`, `account`, `notes` (decimal point always `.` for spreadsheet compatibility).
 
 Apple does **not** expose Wallet / Apple Pay transaction details to third-party apps. You enter the amount and merchant yourself.
 
@@ -93,8 +96,8 @@ After **Export Expenses**, add Google’s **Add Row to Spreadsheet** action (req
 ## CSV format example
 
 ```csv
-date,time,amount,currency,merchant,category,notes
-2026-06-01,14:32:00,12.50,USD,Starbucks,Food,
+date,time,amount,currency,merchant,category,account,notes
+2026-06-01,14:32:00,12.50,USD,Starbucks,Food,Visa ••1234,
 ```
 
 ## Project structure
@@ -102,7 +105,7 @@ date,time,amount,currency,merchant,category,notes
 ```
 SpenderHelper/
   SpenderHelperApp.swift      App entry + SwiftData container
-  Models/                     Expense, ExpenseCategory
+  Models/                     Expense, Category, Account
   Views/                      Quick log, list, edit, share
   Services/                   DataController, CsvExportService
   Intents/                    Log Expense, Export Expenses, App Shortcuts

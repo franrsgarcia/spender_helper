@@ -15,9 +15,15 @@ struct ExpenseRowView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(expense.merchant.isEmpty ? "Expense" : expense.merchant)
                     .font(.headline)
-                Text(expense.categoryRaw)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    Text(expense.categoryDisplayName)
+                    if !expense.accountDisplayName.isEmpty {
+                        Text("·")
+                        Text(expense.accountDisplayName)
+                    }
+                }
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
                 Text(Self.dateFormatter.string(from: expense.date))
                     .font(.caption)
                     .foregroundStyle(.secondary)

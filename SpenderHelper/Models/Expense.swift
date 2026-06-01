@@ -8,13 +8,21 @@ final class Expense {
     var amount: Decimal
     var currency: String
     var merchant: String
-    var categoryRaw: String
     var notes: String
     var createdAt: Date
 
-    var category: ExpenseCategory {
-        get { ExpenseCategory(rawValue: categoryRaw) ?? .other }
-        set { categoryRaw = newValue.rawValue }
+    /// Legacy field for migration from fixed categories; cleared after migration.
+    var categoryRaw: String
+
+    var category: Category?
+    var account: Account?
+
+    var categoryDisplayName: String {
+        category?.name ?? (categoryRaw.isEmpty ? "Uncategorized" : categoryRaw)
+    }
+
+    var accountDisplayName: String {
+        account?.name ?? ""
     }
 
     init(
@@ -23,17 +31,24 @@ final class Expense {
         amount: Decimal,
         currency: String = Locale.current.currency?.identifier ?? "USD",
         merchant: String = "",
-        category: ExpenseCategory = .other,
+        category: Category? = nil,
+        account: Account? = nil,
         notes: String = "",
-        createdAt: Date = Date()
+        createdAt: Date = Date(),
+        categoryRaw: String = ""
     ) {
         self.id = id
         self.date = date
         self.amount = amount
         self.currency = currency
         self.merchant = merchant
-        self.categoryRaw = category.rawValue
+        self.category = category
+        self.account = account
         self.notes = notes
         self.createdAt = createdAt
+        self.categoryRaw = categoryRaw
+        if category != nil {
+            self.categoryRaw = category!.name
+        }
     }
 }

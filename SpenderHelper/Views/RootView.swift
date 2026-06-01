@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct RootView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var showQuickLog = AppLaunchState.shouldShowQuickLog
 
     var body: some View {
@@ -14,6 +16,7 @@ struct RootView: View {
                 })
             }
             .onAppear {
+                SeedDataService.seedIfNeeded(context: modelContext)
                 if AppLaunchState.shouldShowQuickLog {
                     showQuickLog = true
                 }

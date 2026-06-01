@@ -9,7 +9,15 @@
 /* Begin PBXBuildFile section */
 		A10000010000000000000001 /* SpenderHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* SpenderHelperApp.swift */; };
 		A10000010000000000000002 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* Expense.swift */; };
-		A10000010000000000000003 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* ExpenseCategory.swift */; };
+		A10000010000000000000003 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* Category.swift */; };
+		A10000010000000000000012 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000013 /* Account.swift */; };
+		A10000010000000000000013 /* SeedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000014 /* SeedDataService.swift */; };
+		A10000010000000000000014 /* TimePeriodFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000015 /* TimePeriodFilter.swift */; };
+		A10000010000000000000015 /* ExpenseFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000016 /* ExpenseFilters.swift */; };
+		A10000010000000000000016 /* ExpenseFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000017 /* ExpenseFiltersView.swift */; };
+		A10000010000000000000017 /* ManageCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000018 /* ManageCategoriesView.swift */; };
+		A10000010000000000000018 /* ManageAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000019 /* ManageAccountsView.swift */; };
+		A10000010000000000000019 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000020 /* SettingsView.swift */; };
 		A10000010000000000000004 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000004 /* DataController.swift */; };
 		A10000010000000000000005 /* CsvExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000005 /* CsvExportService.swift */; };
 		A10000010000000000000006 /* AppLaunchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000006 /* AppLaunchState.swift */; };
@@ -29,7 +37,15 @@
 /* Begin PBXFileReference section */
 		A20000010000000000000001 /* SpenderHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpenderHelperApp.swift; sourceTree = "<group>"; };
 		A20000010000000000000002 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		A20000010000000000000003 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		A20000010000000000000003 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A20000010000000000000013 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A20000010000000000000014 /* SeedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedDataService.swift; sourceTree = "<group>"; };
+		A20000010000000000000015 /* TimePeriodFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodFilter.swift; sourceTree = "<group>"; };
+		A20000010000000000000016 /* ExpenseFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFilters.swift; sourceTree = "<group>"; };
+		A20000010000000000000017 /* ExpenseFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFiltersView.swift; sourceTree = "<group>"; };
+		A20000010000000000000018 /* ManageCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoriesView.swift; sourceTree = "<group>"; };
+		A20000010000000000000019 /* ManageAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountsView.swift; sourceTree = "<group>"; };
+		A20000010000000000000020 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A20000010000000000000004 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A20000010000000000000005 /* CsvExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExportService.swift; sourceTree = "<group>"; };
 		A20000010000000000000006 /* AppLaunchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchState.swift; sourceTree = "<group>"; };
@@ -94,7 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				A20000010000000000000002 /* Expense.swift */,
-				A20000010000000000000003 /* ExpenseCategory.swift */,
+				A20000010000000000000003 /* Category.swift */,
+				A20000010000000000000013 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +125,10 @@
 				A2000001000000000000000A /* ExpenseRowView.swift */,
 				A2000001000000000000000B /* ExpenseEditView.swift */,
 				A2000001000000000000000C /* ShareSheet.swift */,
+				A20000010000000000000017 /* ExpenseFiltersView.swift */,
+				A20000010000000000000018 /* ManageCategoriesView.swift */,
+				A20000010000000000000019 /* ManageAccountsView.swift */,
+				A20000010000000000000020 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +138,7 @@
 			children = (
 				A20000010000000000000004 /* DataController.swift */,
 				A20000010000000000000005 /* CsvExportService.swift */,
+				A20000010000000000000014 /* SeedDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -126,6 +148,8 @@
 			children = (
 				A20000010000000000000006 /* AppLaunchState.swift */,
 				A20000010000000000000012 /* Notifications.swift */,
+				A20000010000000000000015 /* TimePeriodFilter.swift */,
+				A20000010000000000000016 /* ExpenseFilters.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,7 +235,15 @@
 			files = (
 				A10000010000000000000001 /* SpenderHelperApp.swift in Sources */,
 				A10000010000000000000002 /* Expense.swift in Sources */,
-				A10000010000000000000003 /* ExpenseCategory.swift in Sources */,
+				A10000010000000000000003 /* Category.swift in Sources */,
+				A10000010000000000000012 /* Account.swift in Sources */,
+				A10000010000000000000013 /* SeedDataService.swift in Sources */,
+				A10000010000000000000014 /* TimePeriodFilter.swift in Sources */,
+				A10000010000000000000015 /* ExpenseFilters.swift in Sources */,
+				A10000010000000000000016 /* ExpenseFiltersView.swift in Sources */,
+				A10000010000000000000017 /* ManageCategoriesView.swift in Sources */,
+				A10000010000000000000018 /* ManageAccountsView.swift in Sources */,
+				A10000010000000000000019 /* SettingsView.swift in Sources */,
 				A10000010000000000000004 /* DataController.swift in Sources */,
 				A10000010000000000000005 /* CsvExportService.swift in Sources */,
 				A10000010000000000000006 /* AppLaunchState.swift in Sources */,

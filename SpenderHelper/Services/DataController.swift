@@ -2,7 +2,7 @@ import SwiftData
 
 enum DataController {
     static let sharedModelContainer: ModelContainer = {
-        let schema = Schema([Expense.self])
+        let schema = Schema([Expense.self, Category.self, Account.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             return try ModelContainer(for: schema, configurations: [configuration])

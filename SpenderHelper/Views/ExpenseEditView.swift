@@ -1,7 +1,10 @@
 import SwiftUI
+import SwiftData
 
 struct ExpenseEditView: View {
     @Environment(\.dismiss) private var dismiss
+    @Query(sort: \Category.sortOrder) private var categories: [Category]
+    @Query(sort: \Account.sortOrder) private var accounts: [Account]
     @Bindable var expense: Expense
 
     @State private var amountText: String = ""
@@ -16,12 +19,40 @@ struct ExpenseEditView: View {
                 }
                 Section("Details") {
                     TextField("Merchant", text: $expense.merchant)
-                    Picker("Category", selection: Binding(
-                        get: { expense.category },
-                        set: { expense.category = $0 }
-                    )) {
-                        ForEach(ExpenseCategory.allCases) { cat in
-                            Text(cat.rawValue).tag(cat)
+                    if categories.isEmpty {
+                        Text("Add categories in Settings")
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Picker("Category", selection: Binding(
+                            get: { expense.category?.id },
+                            set: { id in
+                                expense.category = categories.first { $0.id == id }
+                                if let name = expense.category?.name {
+                                    expense.categoryRaw = name
+                                }
+                            }
+                        )) {
+                            ForEach(categories) { category in
+                                Text(category.name).tag(category.id as UUID?)
+                            }
+                        }
+                    }
+                    if accounts.isEmpty {
+                        Text("No accounts configured")
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Picker("Card / Account", selection: Binding(
+                            get: { expense.account?.id },
+                            set: { id in
+                                expense.account = id.flatMap { accountID in
+                                    accounts.first { $0.id == accountID }
+                                }
+                            }
+                        )) {
+                            Text("None").tag(nil as UUID?)
+                            ForEach(accounts) { account in
+                                Text(account.name).tag(account.id as UUID?)
+                            }
                         }
                     }
                     DatePicker("Date", selection: $expense.date, displayedComponents: [.date, .hourAndMinute])
@@ -61,6 +92,9 @@ struct ExpenseEditView: View {
             return
         }
         expense.amount = value
+        if let category = expense.category {
+            expense.categoryRaw = category.name
+        }
         dismiss()
     }
 }

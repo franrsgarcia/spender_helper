@@ -1,7 +1,7 @@
 import Foundation
 
 enum CsvExportService {
-    private static let header = "date,time,amount,currency,merchant,category,notes"
+    private static let header = "date,time,amount,currency,merchant,category,account,notes"
 
     static func export(expenses: [Expense]) throws -> URL {
         let sorted = expenses.sorted { $0.date > $1.date }
@@ -23,7 +23,8 @@ enum CsvExportService {
                 amount,
                 expense.currency,
                 expense.merchant,
-                expense.categoryRaw,
+                expense.categoryDisplayName,
+                expense.accountDisplayName,
                 expense.notes,
             ]
             lines.append(row.map(escapeField).joined(separator: ","))

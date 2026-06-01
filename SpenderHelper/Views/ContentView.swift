@@ -3,52 +3,103 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Expense.date, order: .reverse) private var expenses: [Expense]
+    @Query(sort: \Expense.date, order: .reverse) private var allExpenses: [Expense]
 
+    @State private var filters = ExpenseFilters()
+    @State private var showFilters = false
+    @State private var showSettings = false
     @State private var showQuickLog = false
     @State private var showShareSheet = false
     @State private var exportURL: URL?
     @State private var exportError: String?
     @State private var expenseToEdit: Expense?
 
+    private var filteredExpenses: [Expense] {
+        filters.apply(to: allExpenses)
+    }
+
     var body: some View {
         NavigationStack {
             Group {
-                if expenses.isEmpty {
+                if allExpenses.isEmpty {
                     ContentUnavailableView(
                         "No Expenses Yet",
                         systemImage: "creditcard",
                         description: Text("Log a purchase after using Wallet, or tap + to add one.")
                     )
+                } else if filteredExpenses.isEmpty {
+                    ContentUnavailableView(
+                        "No Matching Expenses",
+                        systemImage: "line.3.horizontal.decrease.circle",
+                        description: Text("Try changing or clearing your filters.")
+                    )
                 } else {
                     List {
-                        ForEach(expenses) { expense in
-                            ExpenseRowView(expense: expense)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    expenseToEdit = expense
-                                }
+                        if filters.hasActiveFilters {
+                            Section {
+                                Text("Showing \(filteredExpenses.count) of \(allExpenses.count)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
-                        .onDelete(perform: deleteExpenses)
+                        Section {
+                            ForEach(filteredExpenses) { expense in
+                                ExpenseRowView(expense: expense)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        expenseToEdit = expense
+                                    }
+                            }
+                            .onDelete(perform: deleteFilteredExpenses)
+                        }
                     }
                 }
             }
             .navigationTitle("Spender Helper")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        exportCSV()
-                    } label: {
-                        Label("Export", systemImage: "square.and.arrow.up")
+                    HStack(spacing: 12) {
+                        Button {
+                            showFilters = true
+                        } label: {
+                            Label("Filters", systemImage: filters.hasActiveFilters
+                                ? "line.3.horizontal.decrease.circle.fill"
+                                : "line.3.horizontal.decrease.circle")
+                        }
+                        Button {
+                            exportCSV()
+                        } label: {
+                            Label("Export", systemImage: "square.and.arrow.up")
+                        }
+                        .disabled(filteredExpenses.isEmpty)
                     }
-                    .disabled(expenses.isEmpty)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showQuickLog = true
-                    } label: {
-                        Label("Log Expense", systemImage: "plus")
+                    HStack(spacing: 12) {
+                        Button {
+                            showSettings = true
+                        } label: {
+                            Label("Settings", systemImage: "gearshape")
+                        }
+                        Button {
+                            showQuickLog = true
+                        } label: {
+                            Label("Log Expense", systemImage: "plus")
+                        }
                     }
+                }
+            }
+            .sheet(isPresented: $showFilters) {
+                ExpenseFiltersView(filters: $filters)
+            }
+            .sheet(isPresented: $showSettings) {
+                NavigationStack {
+                    SettingsView()
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") { showSettings = false }
+                            }
+                        }
                 }
             }
             .sheet(isPresented: $showQuickLog) {
@@ -80,15 +131,15 @@ struct ContentView: View {
         }
     }
 
-    private func deleteExpenses(at offsets: IndexSet) {
+    private func deleteFilteredExpenses(at offsets: IndexSet) {
         for index in offsets {
-            modelContext.delete(expenses[index])
+            modelContext.delete(filteredExpenses[index])
         }
     }
 
     private func exportCSV() {
         do {
-            let url = try CsvExportService.export(expenses: expenses)
+            let url = try CsvExportService.export(expenses: filteredExpenses)
             exportURL = url
             showShareSheet = true
         } catch {
@@ -96,3 +147,5 @@ struct ContentView: View {
         }
     }
 }
+
+extension Expense: @retroactive Identifiable {}
