@@ -20,7 +20,9 @@ Native iPhone app for logging spending after Apple Wallet payments, triggered vi
 
 ## What the app does
 
-- **Quick log** — Amount, merchant, category, card/account, and notes after a payment.
+- **Quick log** — Amount, merchant, category, card/account, date & time (defaults to now, editable), and notes after a payment.
+- **Bank CSV import** — Import Caixa *Consulta de movimentos* CSV from **Settings → Import Bank CSV**. Updates account balances and syncs **expense (debit) rows only**; manual entries are left unchanged.
+- **Balance sheet** — After import, accounting/available balances and statement period appear at the top of the expense list.
 - **Categories** — Add and remove custom categories in **Settings → Categories** (default set seeded on first launch).
 - **Cards & accounts** — Add and remove payment methods in **Settings → Cards & Accounts** (e.g. `Visa ••1234`).
 - **Filters** — Filter the expense list by time period (today, this week, this month, last 30 days, or custom range), categories, and accounts. Export respects active filters.
@@ -63,6 +65,19 @@ Example export shortcut:
 1. **Export Expenses** (Spender Helper).
 2. **Save File** → iCloud Drive / On My iPhone.
 3. Open the file in Excel, or import into Google Sheets.
+
+## Import bank statement (Caixa CSV)
+
+1. Export **Consulta de movimentos** from your bank (semicolon-separated CSV).
+2. Open **Settings → Import Bank CSV** → **Browse Files** or **Choose CSV File**.
+3. Optionally link the file to a specific account; otherwise the app matches by account number in the file.
+4. The import will:
+   - Store **Saldo contabilístico** and **Saldo disponível** on the account
+   - Add/update/remove **bank-imported expenses** (negative amounts only)
+   - Skip credits/transfers in (positive amounts)
+   - Never modify expenses you logged manually
+
+Re-importing the same file updates existing bank rows and removes bank rows that are no longer in the export.
 
 ## Export from the app
 

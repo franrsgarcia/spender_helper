@@ -10,6 +10,7 @@ struct QuickLogView: View {
     var onDismiss: (() -> Void)?
 
     @State private var amountText = ""
+    @State private var expenseDate = Date()
     @State private var merchant = ""
     @State private var selectedCategoryID: UUID?
     @State private var selectedAccountID: UUID?
@@ -29,6 +30,8 @@ struct QuickLogView: View {
                 }
 
                 Section {
+                    DatePicker("Date & Time", selection: $expenseDate, displayedComponents: [.date, .hourAndMinute])
+
                     TextField("Merchant", text: $merchant)
                         .textInputAutocapitalization(.words)
 
@@ -127,6 +130,7 @@ struct QuickLogView: View {
         let account = accounts.first(where: { $0.id == selectedAccountID })
         saveError = nil
         let expense = Expense(
+            date: expenseDate,
             amount: amount,
             merchant: merchant.trimmingCharacters(in: .whitespacesAndNewlines),
             category: category,
@@ -144,6 +148,7 @@ struct QuickLogView: View {
             amountText = ""
             merchant = ""
             notes = ""
+            expenseDate = Date()
         } else {
             close()
         }

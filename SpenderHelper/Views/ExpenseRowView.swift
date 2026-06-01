@@ -13,8 +13,16 @@ struct ExpenseRowView: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(expense.merchant.isEmpty ? "Expense" : expense.merchant)
-                    .font(.headline)
+                HStack(spacing: 4) {
+                    Text(expense.merchant.isEmpty ? "Expense" : expense.merchant)
+                        .font(.headline)
+                    if expense.isBankImported {
+                        Image(systemName: "building.columns")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .accessibilityLabel("Imported from bank")
+                    }
+                }
                 HStack(spacing: 6) {
                     Text(expense.categoryDisplayName)
                     if !expense.accountDisplayName.isEmpty {

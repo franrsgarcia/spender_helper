@@ -14,6 +14,11 @@ final class Expense {
     /// Legacy field for migration from fixed categories; cleared after migration.
     var categoryRaw: String
 
+    /// Empty for manual entries; `"bank"` for rows imported from a bank CSV.
+    var importSource: String
+    /// Stable key for bank import deduplication and sync.
+    var importKey: String
+
     var category: Category?
     var account: Account?
 
@@ -23,6 +28,10 @@ final class Expense {
 
     var accountDisplayName: String {
         account?.name ?? ""
+    }
+
+    var isBankImported: Bool {
+        importSource == "bank"
     }
 
     init(
@@ -35,7 +44,9 @@ final class Expense {
         account: Account? = nil,
         notes: String = "",
         createdAt: Date = Date(),
-        categoryRaw: String = ""
+        categoryRaw: String = "",
+        importSource: String = "",
+        importKey: String = ""
     ) {
         self.id = id
         self.date = date
@@ -47,6 +58,8 @@ final class Expense {
         self.notes = notes
         self.createdAt = createdAt
         self.categoryRaw = categoryRaw
+        self.importSource = importSource
+        self.importKey = importKey
         if category != nil {
             self.categoryRaw = category!.name
         }

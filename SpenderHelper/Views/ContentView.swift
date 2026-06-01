@@ -35,6 +35,7 @@ struct ContentView: View {
                     )
                 } else {
                     List {
+                        BalanceSheetSummaryView()
                         if filters.hasActiveFilters {
                             Section {
                                 Text("Showing \(filteredExpenses.count) of \(allExpenses.count)")
