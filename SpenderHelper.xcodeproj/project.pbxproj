@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000010000000000000001 /* SpenderHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001 /* SpenderHelperApp.swift */; };
+		A10000010000000000000002 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000002 /* Expense.swift */; };
+		A10000010000000000000003 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000003 /* ExpenseCategory.swift */; };
+		A10000010000000000000004 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000004 /* DataController.swift */; };
+		A10000010000000000000005 /* CsvExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000005 /* CsvExportService.swift */; };
+		A10000010000000000000006 /* AppLaunchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000006 /* AppLaunchState.swift */; };
+		A10000010000000000000011 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000012 /* Notifications.swift */; };
+		A10000010000000000000007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000007 /* RootView.swift */; };
+		A10000010000000000000008 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000008 /* ContentView.swift */; };
+		A10000010000000000000009 /* QuickLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000009 /* QuickLogView.swift */; };
+		A1000001000000000000000A /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000A /* ExpenseRowView.swift */; };
+		A1000001000000000000000B /* ExpenseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000B /* ExpenseEditView.swift */; };
+		A1000001000000000000000C /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000C /* ShareSheet.swift */; };
+		A1000001000000000000000D /* LogExpenseIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000D /* LogExpenseIntent.swift */; };
+		A1000001000000000000000E /* ExportExpensesIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000E /* ExportExpensesIntent.swift */; };
+		A1000001000000000000000F /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001000000000000000F /* AppShortcuts.swift */; };
+		A10000010000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000010 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000010000000000000001 /* SpenderHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpenderHelperApp.swift; sourceTree = "<group>"; };
+		A20000010000000000000002 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		A20000010000000000000003 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		A20000010000000000000004 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		A20000010000000000000005 /* CsvExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExportService.swift; sourceTree = "<group>"; };
+		A20000010000000000000006 /* AppLaunchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchState.swift; sourceTree = "<group>"; };
+		A20000010000000000000012 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		A20000010000000000000007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A20000010000000000000008 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A20000010000000000000009 /* QuickLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogView.swift; sourceTree = "<group>"; };
+		A2000001000000000000000A /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
+		A2000001000000000000000B /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
+		A2000001000000000000000C /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		A2000001000000000000000D /* LogExpenseIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogExpenseIntent.swift; sourceTree = "<group>"; };
+		A2000001000000000000000E /* ExportExpensesIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportExpensesIntent.swift; sourceTree = "<group>"; };
+		A2000001000000000000000F /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
+		A20000010000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20000010000000000000011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A30000010000000000000001 /* SpenderHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpenderHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000010000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A50000010000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A50000010000000000000002 /* SpenderHelper */,
+				A50000010000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A50000010000000000000002 /* SpenderHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000001 /* SpenderHelperApp.swift */,
+				A50000010000000000000004 /* Models */,
+				A50000010000000000000005 /* Views */,
+				A50000010000000000000006 /* Services */,
+				A50000010000000000000007 /* Helpers */,
+				A50000010000000000000008 /* Intents */,
+				A20000010000000000000010 /* Assets.xcassets */,
+				A20000010000000000000011 /* Info.plist */,
+			);
+			path = SpenderHelper;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A30000010000000000000001 /* SpenderHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000002 /* Expense.swift */,
+				A20000010000000000000003 /* ExpenseCategory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000007 /* RootView.swift */,
+				A20000010000000000000008 /* ContentView.swift */,
+				A20000010000000000000009 /* QuickLogView.swift */,
+				A2000001000000000000000A /* ExpenseRowView.swift */,
+				A2000001000000000000000B /* ExpenseEditView.swift */,
+				A2000001000000000000000C /* ShareSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000006 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000004 /* DataController.swift */,
+				A20000010000000000000005 /* CsvExportService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000007 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000006 /* AppLaunchState.swift */,
+				A20000010000000000000012 /* Notifications.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A50000010000000000000008 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				A2000001000000000000000D /* LogExpenseIntent.swift */,
+				A2000001000000000000000E /* ExportExpensesIntent.swift */,
+				A2000001000000000000000F /* AppShortcuts.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60000010000000000000001 /* SpenderHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000010000000000000003 /* Build configuration list for PBXNativeTarget "SpenderHelper" */;
+			buildPhases = (
+				A60000010000000000000002 /* Sources */,
+				A40000010000000000000001 /* Frameworks */,
+				A60000010000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpenderHelper;
+			productName = SpenderHelper;
+			productReference = A30000010000000000000001 /* SpenderHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A70000010000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A60000010000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A80000010000000000000001 /* Build configuration list for PBXProject "SpenderHelper" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A50000010000000000000001;
+			productRefGroup = A50000010000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60000010000000000000001 /* SpenderHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A60000010000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000010 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A60000010000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000001 /* SpenderHelperApp.swift in Sources */,
+				A10000010000000000000002 /* Expense.swift in Sources */,
+				A10000010000000000000003 /* ExpenseCategory.swift in Sources */,
+				A10000010000000000000004 /* DataController.swift in Sources */,
+				A10000010000000000000005 /* CsvExportService.swift in Sources */,
+				A10000010000000000000006 /* AppLaunchState.swift in Sources */,
+				A10000010000000000000011 /* Notifications.swift in Sources */,
+				A10000010000000000000007 /* RootView.swift in Sources */,
+				A10000010000000000000008 /* ContentView.swift in Sources */,
+				A10000010000000000000009 /* QuickLogView.swift in Sources */,
+				A1000001000000000000000A /* ExpenseRowView.swift in Sources */,
+				A1000001000000000000000B /* ExpenseEditView.swift in Sources */,
+				A1000001000000000000000C /* ShareSheet.swift in Sources */,
+				A1000001000000000000000D /* LogExpenseIntent.swift in Sources */,
+				A1000001000000000000000E /* ExportExpensesIntent.swift in Sources */,
+				A1000001000000000000000F /* AppShortcuts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A90000010000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A90000010000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A90000010000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpenderHelper/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spenderhelper.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A90000010000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpenderHelper/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spenderhelper.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80000010000000000000001 /* Build configuration list for PBXProject "SpenderHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90000010000000000000001 /* Debug */,
+				A90000010000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80000010000000000000003 /* Build configuration list for PBXNativeTarget "SpenderHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90000010000000000000003 /* Debug */,
+				A90000010000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A70000010000000000000001 /* Project object */;
+}
